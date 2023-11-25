@@ -54,4 +54,26 @@ struct Person {
     }
 }
 var person = Person(name: "Ed")
+
 person.makeAnonymous()
+
+/* As a performance optimization, Swift lets you create some properties only when they are needed. As an example, consider this FamilyTree struct – it doesn’t do much, but in theory creating a family tree for someone takes a long time:
+ */
+
+struct FamilyTree {
+    init() {
+        print("Creating family tree!")
+    }
+}
+
+struct Human {
+    var name: String
+    lazy var familyTree = FamilyTree()
+
+    init(name: String) {
+        self.name = name
+    }
+}
+
+var ed = Human(name: "Ed")
+ed.familyTree
