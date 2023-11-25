@@ -1,6 +1,6 @@
 # 100DaysOfSwift
 
-## Day 1-5
+## Day 1-10
 
 ### Tuple 
 Tuples allow you to store several values together in a single value. That might sound like arrays, but tuples are different:
@@ -23,3 +23,18 @@ var myNum = 10
 doubleInPlace(number: &myNum) 
 ```
 now myNum is 20.
+
+### Structs
+Structs can have functions inside them, and those functions can use the properties of the struct as they need to. Functions inside structs are called methods, but they still use the same func keyword.
+The only real difference is that methods belong to a type, such as structs, enums, and classes, whereas functions do not. That’s it – that’s the only difference.
+
+When you want to change a property inside a method, you need to mark it using the mutating keyword
+```
+struct Person {
+    var name: String
+
+    mutating func makeAnonymous() {
+        name = "Anonymous"
+    }
+}
+```
